@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Juguetería Tikitoy</title>
     <link rel="stylesheet" href="SCSS/main.css">
 </head>
+
 <body>
     <header class="main__header">
         <a href="Index.html" target="_self">
@@ -15,25 +17,45 @@
 
         <nav class="nav__list" role="navigation">
             <ul>
-                <li><a href="#">Inicio</a></li>
-                <li><a href="#productos">Productos</a></li>
-                <li><a href="#nosotros">Nosotros</a></li>
-                <li><a href="#contacto">Contacto</a></li>
-                <li><a href="#Alta">Alta de producto</a></li>
+                <li><a href="./Index.html">Productos</a></li>
+                <li><a href="./Nosotros.html">Nosotros</a></li>
+                <li><a href="./Contacto.html">Contacto</a></li>
+                <li><a href="./Alta.html">Alta de producto</a></li>
             </ul>
         </nav>
     </header>
+    <div class="alta__form"> 
+        <h2>Alta de producto</h2>
+        <form class="alta__form-container" id="form" action="#" method="POST">
+
+            <label for="nombre de producto">Nombre de producto:</label>
+            <input type="text" id="nombre de producto" name="nombre de producto">
+            <span class="name-product" id="error-product"></span>
+
+            <label for="cantidad de producto">Cantidad:</label>
+            <input type="number" id="cantidad de producto" name="cantidad de producto">
+            <span class="quantity-product" id="error-quantity"></span>
+
+            <label for="precio">Precio:</label>
+            <input type="number" id="precio" name="precio" step="0.01">
+            <span class="price-product" id="error-price"></span>
+
+            <button type="submit">Guardar</button>
+
+        </form>
+    </div>
 
     <footer class="main__footer-container">
         <nav class="footer__nav-container">
-          <ul>
-            <li><a href="https://www.facebook.com/?locale=es_LA" aria-label="Facebook de Tikitoy">Facebook</a></li>
-            <li><a href="https://www.facebook.com/?locale=es_LA" aria-label="Perfil en X (antes Twitter)">X</a></li>
-            <li><a href="https://www.instagram.com/" aria-label="Instagram de Tikitoy">Instagram</a></li>
-          </ul>
+            <ul>
+                <li><a href="https://www.facebook.com/?locale=es_LA" aria-label="Facebook de Tikitoy">Facebook</a></li>
+                <li><a href="https://www.facebook.com/?locale=es_LA" aria-label="Perfil en X (antes Twitter)">X</a></li>
+                <li><a href="https://www.instagram.com/" aria-label="Instagram de Tikitoy">Instagram</a></li>
+            </ul>
         </nav>
         <p>&copy; 2025 <strong>Tikitoy</strong>. Todos los derechos reservados.</p>
-      </footer>
-    
+    </footer>
+<script src="JS/main.js"></script>
 </body>
+
 </html>

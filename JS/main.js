@@ -102,3 +102,48 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+    const form = document.getElementById("form");
+    const nombreInput = document.getElementById("nombre de producto");
+    const cantidadInput = document.getElementById("cantidad de producto");
+    const precioInput = document.getElementById("precio");
+
+    const errorNombre = document.getElementById("error-product");
+    const errorCantidad = document.getElementById("error-quantity");
+    const errorPrecio = document.getElementById("error-price");
+
+    form.addEventListener("submit", function (e) {
+        let valid = true;
+
+        const nombreRegex = /^[a-zA-Z0-9\s]{3,}$/;
+        const cantidadRegex = /^[1-9][0-9]*$/;
+        const precioRegex = /^\d+(\.\d{1,2})?$/;
+
+        if (!nombreRegex.test(nombreInput.value.trim())) {
+            errorNombre.textContent = "El nombre debe tener al menos 3 caracteres y solo letras, números y espacios.";
+            valid = false;
+        } else {
+            errorNombre.textContent = "";
+        }
+
+        if (!cantidadRegex.test(cantidadInput.value.trim())) {
+            errorCantidad.textContent = "La cantidad debe ser un número entero positivo.";
+            valid = false;
+        } else {
+            errorCantidad.textContent = "";
+        }
+
+        if (!precioRegex.test(precioInput.value.trim()) || parseFloat(precioInput.value) <= 0) {
+            errorPrecio.textContent = "El precio debe ser un número positivo (máximo dos decimales).";
+            valid = false;
+        } else {
+            errorPrecio.textContent = "";
+        }
+
+        if (!valid) {
+            e.preventDefault(); 
+        }
+    });
+});
+
