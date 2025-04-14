@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juguetería Tikitoy</title>
+    <link rel="stylesheet" href="SCSS/main.css">
+</head>
+
+<body>
+    <header class="main__header">
+        <a href="Index.html" target="_self">
+            <img src="IMG/tikitoy.png" alt="Logo de Tikitoy" />
+        </a>
+        <button class="menu__toggle" aria-label="Abrir menú">☰</button>
+
+        <nav class="nav__list" role="navigation">
+            <ul>
+                <li><a href="#">Inicio</a></li>
+                <li><a href="#productos">Productos</a></li>
+                <li><a href="#nosotros">Nosotros</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+                <li><a href="#Alta">Alta de producto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="contact__form">
+        <h2>Contáctanos</h2>
+        <form class="contact__form-container" id="formulario" action="#" method="POST">
+          <label for="nombre">Nombre:</label>
+          <input type="text" id="nombre" name="nombre">
+          <span class="error" id="error-nombre"></span>
+      
+          <label for="celular">Celular:</label>
+          <input type="tel" id="celular" name="celular">
+          <span class="error" id="error-celular"></span>
+      
+          <label for="ciudad">Ciudad:</label>
+          <input type="text" id="ciudad" name="ciudad">
+          <span class="error" id="error-ciudad"></span>
+      
+          <label for="email">Correo Electrónico:</label>
+          <input type="email" id="email" name="email">
+          <span class="error" id="error-email"></span>
+      
+          <label for="mensaje">Mensaje:</label>
+          <textarea id="mensaje" name="mensaje" rows="5"></textarea>
+          <span class="error" id="error-mensaje"></span>
+      
+          <button type="submit">Enviar</button>
+        </form>
+      </div>
+
+    <footer class="main__footer-container">
+        <nav class="footer__nav-container">
+            <ul>
+                <li><a href="https://www.facebook.com/?locale=es_LA" aria-label="Facebook de Tikitoy">Facebook</a>
+                </li>
+                <li><a href="https://www.facebook.com/?locale=es_LA" aria-label="Perfil en X (antes Twitter)">X</a>
+                </li>
+                <li><a href="https://www.instagram.com/" aria-label="Instagram de Tikitoy">Instagram</a></li>
+            </ul>
+        </nav>
+        <p>&copy; 2025 <strong>Tikitoy</strong>. Todos los derechos reservados.</p>
+    </footer>
+    <script src="JS/main.js"></script>
+</body>
+
+</html>

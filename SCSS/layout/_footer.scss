@@ -1,0 +1,44 @@
+.main__footer-container {
+    background: $primary-bg;
+    color: $text-color;
+    font-family: $main-font;
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: $shadow;
+    border-top: 1px solid white;
+    
+    .footer__nav-container {
+      margin-bottom: 1rem;
+  
+      ul {
+        list-style: none;
+        padding: 0;
+        display: flex;
+        background: $primary-bg;
+        justify-content: center;
+        border-top: 1px solid white;
+        border-bottom: 1px solid white;
+        gap: 1.5rem;
+        box-shadow: $shadow;
+  
+        li {
+          a {
+            text-decoration: none;
+            color: $text-color;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: color 0.3s ease;
+  
+            &:hover {
+              color: darken($text-color, 15%);
+            }
+          }
+        }
+      }
+    }
+  
+    p {
+      margin: 0;
+      font-size: 0.95rem;
+    }
+  }

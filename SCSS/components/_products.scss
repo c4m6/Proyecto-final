@@ -1,0 +1,17 @@
+.products__main-container {
+  display: flex;
+  justify-content: center;
+  height: auto;
+  flex-wrap: wrap;
+}
+
+.title__container{
+    display: flex;
+    padding:0 2rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: $primary-bg;
+    box-shadow:$shadow;
+    text-align: center;
+  }

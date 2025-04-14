@@ -1,0 +1,14 @@
+button{
+    background-color: $secondary-bg;
+    width: 100px;
+    flex-direction: column;
+    color: $text-color;
+    border-radius: .25rem;
+    border: none;
+    font-family: $main-font;
+    box-shadow: $shadow;
+    &:hover{
+        background-color: darken($secondary-bg, 10%);
+        transform: scale(1.2);
+    }
+}
