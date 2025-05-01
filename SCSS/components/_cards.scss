@@ -1,4 +1,4 @@
-.toy__card { 
+.toy__card {
   background: $card-bg;
   font-family: $main-font;
   color: $text-color;
@@ -7,7 +7,7 @@
   width: 200px;
   height: auto;
   padding: 10px;
-  margin: 1rem;
+  
   text-align: center;
   transition: transform 0.2s;
   cursor: pointer;
@@ -36,7 +36,6 @@
     font-weight: bold;
   }
 
-  // 📱 Responsive para tablets
   @media (max-width: 768px) {
     width: 160px;
 
@@ -54,9 +53,9 @@
     }
   }
 
-  // 📱 Responsive para móviles
+
   @media (max-width: 480px) {
-    width: 100%; // Se ajusta al ancho del contenedor padre
+    width: 100%;
 
     img {
       width: 100%;

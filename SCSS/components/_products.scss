@@ -1,17 +1,16 @@
-.products__main-container {
+.title__container {
   display: flex;
+  padding: 0 2rem;
+  flex-direction: column;
   justify-content: center;
-  height: auto;
-  flex-wrap: wrap;
+  align-items: center;
+  background: $primary-bg;
+  box-shadow: $shadow;
+  text-align: center;
 }
-
-.title__container{
-    display: flex;
-    padding:0 2rem;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background: $primary-bg;
-    box-shadow:$shadow;
-    text-align: center;
-  }
+.products__main {
+  display: grid;
+  margin: 1rem 4rem;
+  grid-template-columns: repeat(auto-fit, minmax(12.65rem, 1fr));
+  gap: 1rem;
+}
