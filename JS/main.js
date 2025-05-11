@@ -1,149 +1,124 @@
 document.addEventListener("DOMContentLoaded", () => {
+  
   const toggleBtn = document.querySelector(".menu__toggle");
-  const nav = document.querySelector(".nav__list");
+  const navList = document.querySelector(".nav__list");
 
   toggleBtn.addEventListener("click", (e) => {
     e.stopPropagation();
-    nav.classList.toggle("active");
+    navList.classList.toggle("active");
   });
 
   document.addEventListener("click", (e) => {
     if (
-      nav.classList.contains("active") &&
-      !nav.contains(e.target) &&
+      navList.classList.contains("active") &&
+      !navList.contains(e.target) &&
       !toggleBtn.contains(e.target)
     ) {
-      nav.classList.remove("active");
+      navList.classList.remove("active");
     }
   });
 
-  nav.querySelectorAll("a").forEach((link) => {
+  navList.querySelectorAll("a").forEach((link) => {
     link.addEventListener("click", () => {
-      nav.classList.remove("active");
+      navList.classList.remove("active");
     });
   });
-});
 
 
-document.addEventListener('DOMContentLoaded', () => {
-    const form = document.getElementById('formulario');
+  const formContacto = document.getElementById("formulario");
 
-    
+  if (formContacto) {
     const campos = {
-        nombre: {
-            input: document.getElementById('nombre'),
-            error: document.getElementById('error-nombre'),
-            regex: /^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]{2,}$/,
-            mensaje: "Nombre inválido. Solo letras y mínimo 2 caracteres."
-        },
-        celular: {
-            input: document.getElementById('celular'),
-            error: document.getElementById('error-celular'),
-            regex: /^\d{7,15}$/,
-            mensaje: "Celular inválido. Solo números (7-15 dígitos)."
-        },
-        ciudad: {
-            input: document.getElementById('ciudad'),
-            error: document.getElementById('error-ciudad'),
-            regex: /^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]{2,}$/,
-            mensaje: "Ciudad inválida. Solo letras y mínimo 2 caracteres."
-        },
-        email: {
-            input: document.getElementById('email'),
-            error: document.getElementById('error-email'),
-            regex: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-            mensaje: "Correo electrónico inválido."
-        },
-        mensaje: {
-            input: document.getElementById('mensaje'),
-            error: document.getElementById('error-mensaje'),
-            validate: (value) => value.trim().length >= 10,
-            mensaje: "El mensaje debe tener al menos 10 caracteres."
-        }
+      nombre: {
+        input: document.getElementById("nombre"),
+        error: document.getElementById("error-nombre"),
+        regex: /^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]{2,}$/,
+        mensaje: "Nombre inválido. Solo letras y mínimo 2 caracteres.",
+      },
+      celular: {
+        input: document.getElementById("celular"),
+        error: document.getElementById("error-celular"),
+        regex: /^\d{7,15}$/,
+        mensaje: "Celular inválido. Solo números (7-15 dígitos).",
+      },
+      ciudad: {
+        input: document.getElementById("ciudad"),
+        error: document.getElementById("error-ciudad"),
+        regex: /^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]{2,}$/,
+        mensaje: "Ciudad inválida. Solo letras y mínimo 2 caracteres.",
+      },
+      email: {
+        input: document.getElementById("email"),
+        error: document.getElementById("error-email"),
+        regex: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+        mensaje: "Correo electrónico inválido.",
+      },
+      mensaje: {
+        input: document.getElementById("mensaje"),
+        error: document.getElementById("error-mensaje"),
+        validate: (value) => value.trim().length >= 10,
+        mensaje: "El mensaje debe tener al menos 10 caracteres.",
+      },
     };
 
-    function validarCampo(campo, config) {
-        const valor = campo.value.trim();
-        let valido = false;
+    function validarCampo(input, config) {
+      const valor = input.value.trim();
+      const valido = config.regex ? config.regex.test(valor) : config.validate(valor);
 
-        if (config.regex) {
-            valido = config.regex.test(valor);
-        } else if (config.validate) {
-            valido = config.validate(valor);
-        }
-
-        if (!valido) {
-            config.error.textContent = config.mensaje;
-        } else {
-            config.error.textContent = "";
-        }
-
-        return valido;
+      config.error.textContent = valido ? "" : config.mensaje;
+      return valido;
     }
 
     for (const key in campos) {
-        campos[key].input.addEventListener('input', () => {
-            validarCampo(campos[key].input, campos[key]);
-        });
+      campos[key].input.addEventListener("input", () => {
+        validarCampo(campos[key].input, campos[key]);
+      });
     }
 
-    form.addEventListener('submit', (e) => {
-        e.preventDefault();
-        let formularioValido = true;
+    formContacto.addEventListener("submit", (e) => {
+      e.preventDefault();
+      let valido = true;
 
-        for (const key in campos) {
-            const esValido = validarCampo(campos[key].input, campos[key]);
-            if (!esValido) formularioValido = false;
+      for (const key in campos) {
+        if (!validarCampo(campos[key].input, campos[key])) {
+          valido = false;
         }
+      }
 
-        if (formularioValido) {
-            alert("Nos pondremos en contacto lo má pronto posible.");
-            form.submit(); 
-        }
+      if (valido) {
+        alert("Nos pondremos en contacto lo más pronto posible.");
+        formContacto.submit();
+      }
     });
-});
+  }
 
-document.addEventListener("DOMContentLoaded", function () {
-    const form = document.getElementById("form");
-    const nombreInput = document.getElementById("nombre de producto");
-    const cantidadInput = document.getElementById("cantidad de producto");
-    const precioInput = document.getElementById("precio");
+  const formProducto = document.getElementById("form");
+
+  if (formProducto) {
+    const nombreProducto = document.getElementById("nombre de producto");
+    const cantidadProducto = document.getElementById("cantidad de producto");
+    const precioProducto = document.getElementById("precio");
 
     const errorNombre = document.getElementById("error-product");
     const errorCantidad = document.getElementById("error-quantity");
     const errorPrecio = document.getElementById("error-price");
 
-    form.addEventListener("submit", function (e) {
-        let valid = true;
+    formProducto.addEventListener("submit", (e) => {
+      let valido = true;
 
-        const nombreRegex = /^[a-zA-Z0-9\s]{3,}$/;
-        const cantidadRegex = /^[1-9][0-9]*$/;
-        const precioRegex = /^\d+(\.\d{1,2})?$/;
+      const nombreValido = /^[a-zA-Z0-9\s]{3,}$/.test(nombreProducto.value.trim());
+      const cantidadValida = /^[1-9][0-9]*$/.test(cantidadProducto.value.trim());
+      const precioValido = /^\d+(\.\d{1,2})?$/.test(precioProducto.value.trim()) &&
+                           parseFloat(precioProducto.value) > 0;
 
-        if (!nombreRegex.test(nombreInput.value.trim())) {
-            errorNombre.textContent = "El nombre debe tener al menos 3 caracteres y solo letras, números y espacios.";
-            valid = false;
-        } else {
-            errorNombre.textContent = "";
-        }
+      errorNombre.textContent = nombreValido ? "" : "El nombre debe tener al menos 3 caracteres y solo letras, números y espacios.";
+      errorCantidad.textContent = cantidadValida ? "" : "La cantidad debe ser un número entero positivo.";
+      errorPrecio.textContent = precioValido ? "" : "El precio debe ser un número positivo (máximo dos decimales).";
 
-        if (!cantidadRegex.test(cantidadInput.value.trim())) {
-            errorCantidad.textContent = "La cantidad debe ser un número entero positivo.";
-            valid = false;
-        } else {
-            errorCantidad.textContent = "";
-        }
-
-        if (!precioRegex.test(precioInput.value.trim()) || parseFloat(precioInput.value) <= 0) {
-            errorPrecio.textContent = "El precio debe ser un número positivo (máximo dos decimales).";
-            valid = false;
-        } else {
-            errorPrecio.textContent = "";
-        }
-
-        if (!valid) {
-            e.preventDefault(); 
-        }
+      if (!nombreValido || !cantidadValida || !precioValido) {
+        valido = false;
+        e.preventDefault();
+      }
     });
+  }
 });
-
